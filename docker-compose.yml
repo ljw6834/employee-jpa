@@ -1,0 +1,30 @@
+version: "3"
+
+networks:
+  employee-mysql:
+
+services:
+  mysqldb:
+    image: mysql:8
+    container_name: mysqldb
+    networks:
+      - employee-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234
+      - MYSQL_DATABASE=testdb
+
+  employee-jpa:
+    image: employee-jpa
+    container_name: employee-jpa-container
+    environment:
+      WAIT_HOSTS: mysqldb:3306
+    depends_on:
+      - mysqldb
+    ports:
+      - 8080:8080
+    networks:
+      - employee-mysql
+
+
+
+
