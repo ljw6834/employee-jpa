@@ -43,5 +43,8 @@ we use root as user. I just put here so that I don't forget the commands:
         create user 'tester'@'%' identified by '1234';      ----create a user with username and password
         grant all on *.* to 'tester'@'%';                   ----grant all privileges
         select user, host from mysql.user;                  ----check user
+ 
+Tutorial url: 
+https://www.javainuse.com/devOps/docker/docker-mysql
 
 
